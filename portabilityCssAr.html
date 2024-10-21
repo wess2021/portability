@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Portabilité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styleCss.css">
+    <script src="src/js/form.js"></script>
+
+<!-- Bootstrap JS and dependencies (Optional if you're not using any Bootstrap JavaScript functionality) -->
+
+
+    <style>
+        body {
+            direction: rtl; 
+            text-align: right;
+        }
+
+        .container {
+            text-align: right; 
+        }
+
+        .form-group {
+            text-align: right;
+        }
+
+        .header {
+            text-align: right; 
+        }
+
+        .hidden {
+            display: none; 
+        }
+            
+input[type="date" i] {
+    font-family: monospace;
+    padding-inline-start: 1px;
+    cursor: default;
+    padding: 0;
+    text-align: right;
+}
+    </style>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="src/images/logocss.png" alt="Logo" />
+                </div>
+                <div class="language-switcher">
+                    <button type="button" onclick="window.location.href='portabilityCssFr.html'">Français</button>
+                </div>
+            </div>
+      </header>
+    <main class="main-content">  
+        <div class="form-panel">
+            <img src="src/images/logo1css.png" alt="Top Left Image" class="top-left-img">
+           <!-- <img src="src/images/image2.png" alt="Bottom Right Image" class="bottom-right-img">-->
+            <div id="frenchForm">
+            <form id="multiStepForm" enctype="multipart/form-data" novalidate>
+                <!-- Step 1 -->
+                <div class="form-step active" id="step1">
+            <h1>نقل رقم الهاتف عبر الإنترنت</h1>
+            <p class="soustitlear"></p>
+            <div id="custom-alert-container"></div>
+            <div class="form-group">
+                <label for="phoneNumber">رقم الهاتف المحمول<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                <div class="error" id="phoneNumberError">رقم الهاتف إجباري</div>
+                <div class="error" id="phoneNumberdigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام.</div>
+            </div>
+            <div class="form-group">
+                <label for="ancienOperator">المشغل القديم <span class="text-danger">*</span></label>
+                <select id="ancienOperator" class="form-control" name="ancienOperator" required>
+                    <option value="">إختر</option>
+                    <option value="Ooredoo">Ooredoo</option>
+                    <option value="Orange">Orange</option>
+                </select>
+                <div class="error" id="ancienOperatorError">المشغل القديم إجباري</div>
+            </div>
+            <div class="form-group">
+                <label for="typePerson">نوع الشخص <span class="text-danger">*</span></label>
+                <select id="typePerson" class="form-control" name="typePerson" required>
+                    <option value="">إختر</option>
+                    <option value="Individual">فردي</option>
+                    <option value="Company">شركة</option>
+                </select>
+                <div class="error" id="typePersonError">نوع الشخص إجباري.</div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-success buttonet" type="button" id="nextBtn">التالي</button>
+            </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="form-step" id="step2">
+            <h1>نقل رقم الهاتف عبر الإنترنت</h1>
+            <p class="soustitlear">كن مع جوهرة موبايل دون تغيير رقم هاتفك الحالي</p>
+            <div class="two-column"> 
+                <div class="form-group">
+                    <label for="civility">التحية  <span class="text-danger">*</span></label>
+                    <select class="form-control" id="civility" name="civility" required>
+                        <option value="">إختر</option>
+                        <option value="Mr">سيد</option>
+                        <option value="Mme">سيدة</option>
+                        <option value="Mlle">آنسة</option>
+                    </select>
+                    <div class="error" id="civilityError">التحية إجبارية</div>
+                </div> 
+                <div class="form-group">
+                    <label for="typeIdentity">نوع الهوية <span class="text-danger">*</span></label>
+                    <select class="form-control" id="typeIdentity" name="typeIdentity" required>
+                        <option value="">إختر</option>
+                        <option value="CIN">بطاقة التعريف الوطنية</option>
+                        <option value="Passport">جواز السفر</option>
+                    </select>
+                    <div class="error" id="typeIdentityError">نوع الهوية إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">الاسم  <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    <div class="error" id="prenomError">الاسم إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="nom">اللقب <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                    <div class="error" id="nomError">اللقب إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="cin">رقم بطاقة الهوية<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="cin" name="cin" required>
+                    <div class="error" id="cinError">رقم بطاقة الهوية إجباري.</div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmcin">تأكيد رقم بطاقة الهوية<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="confirmcin" name="confirmcin" required>
+                    <div class="error" id="confirmcinError">تأكيد رقم بطاقة الهوية إجباري</div>
+                    <div class="error" id="cinMatchError" style="color:red;display:none;">أرقام الهوية غير متطابقة</div>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryCin">تاريخ الإصدار <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="deliveryCin" name="deliveryCin" required>
+                    <div class="error" id="deliveryCinError">تاريخ إصدار بطاقة الهوية إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="delveryplace">في <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="delveryplace" name="delveryplace" required>
+                    <div class="error" id="delveryplaceError">مكان الإصدار إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">عنوان العميل <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" required>
+                    <div class="error" id="adresseError">العنوان إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="pays">الدولة  <span class="text-danger">*</span></label>
+                    <select type="text" class="form-control" id="pays" name="pays" required>
+                        <option value="">اختر الدولة</option>
+                    </select>
+                    <div class="error" id="paysError">الدولة إجبارية</div>
+                </div>
+                <div class="form-group">
+                    <label for="gouvernorat">المحافظة  <span class="text-danger">*</span></label>
+                    <select id="gouvernorat" name="gouvernorat" class="form-control" required>
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                    <div class="error" id="gouvernoratError">المحافظة إجبارية</div>
+                </div>
+                <div class="form-group">
+                    <label for="ville">المدينة <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="ville" name="ville" required>
+                    <div class="error" id="villeError">المدينة إجبارية</div>
+                </div>
+                <div class="form-group">
+                    <label for="codePostal">الرمز البريدي <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="codePostal" name="codePostal" required>
+                    <div class="error" id="codePostalError">الرمز البريدي إجباري</div>
+                </div>             
+                <div class="form-group">
+                    <label for="birthday">تاريخ الميلاد  <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" required>
+                    <div class="error" id="birthdayError">تاريخ الميلاد إجباري.</div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم هاتف التواصل <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="phone" name="phone" required>
+                    <div class="error" id="phoneError">رقم الهاتف إجباري</div>
+                    <div class="error" id="phonedigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام</div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneDesired">أرغب في نقل الرقم التالي<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required>
+                    <div class="error" id="phoneDesiredError">رقم الهاتف إجباري</div>
+                    <div class="error" id="phonedesdigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="error" id="emailError">البريد الإلكتروني إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="dateMiseEnServiceDes">تاريخ بدء الخدمة<span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
+                    <div class="error" id="dateMiseEnServiceDesError">تاريخ بدء الخدمة إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="cinRecto">ارفع نسخة من الهوية <span class="text-danger">*</span></label>
+                    <input type="file"  class="form-control" id="cinRecto" name="cinRecto" accept="image/*" required>
+                    <div class="error" id="cinRectoError">تأكيد رفع الهوية إجباري.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cinVerso">ارفع نسخة من الهوية - verso <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="cinVerso" name="cinVerso" accept="image/*" required>
+                    <div class="error" class="form-control" id="cinVersoError">تأكيد رفع الهوية إجباري</div>
+                </div>
+                <div class="form-group">
+                    <label for="codeRio">   الخاص بك RIO قم بتحميل التقاط رمز  <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="codeRio" name="codeRio" accept="image/*" alt="Tapez *172# pour obtenir votre code RIO" required>
+                    <div class="error" id="codeRioError">  الخاص بك إجباري RIO قم بتحميل التقاط رمز   </div>
+                    <small>اكتب *172# للحصول على رمز RIO الخاص بك</small>
+                </div>
+                <div class="form-group">
+                    <label for="adresseLivraison">عنوان التسليم (اختياري)</label>
+                    <input id="adresseLivraison" name="adresseLivraison" rows="5" class="form-control" placeholder="إذا كان عنوان التسليم مختلفاً عن عنوان منزل العميل"/>
+                </div>
+                <input type="hidden" class="form-control" id="from" name="from" value="CSS"  required>
+                <div class="form-group">
+                    <label for="confirmation">
+                        <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px; margin-top: 28px;" required>
+                        لقد قرأت ووافقت على بنود ولاية النقل
+                        <span class="text-danger">*</span></label>
+                    <div class="error" id="confirmationError">حقل إجباري.</div>
+                </div>
+            </div>
+            <input type="hidden" id="hiddenPhoneNumber" name="phoneNumber">
+            <div class="button-container">
+                <button type="button" class="btn2 btn-success buttonet" id="prevBtn" style="display:none;">السابق</button>
+                <button type="submit" class="btn btn-success buttonet" id="submitBtn" style="display:none;margin-right: 15px;">التالي</button>
+        </div> 
+        </div>
+        </form>
+        </div>
+        <!-- end of french form -->       
+        </div>       
+    </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="src/js/countriesar.js"></script>
+<div class="container-footer">
+    <footer id="footer">
+        <div class="footerar">
+        </div>
+    </footer>
+</div>
+    </div>
+    
+</body>
+</html>
