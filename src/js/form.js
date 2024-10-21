@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
         const submitBtn = document.getElementById('submitBtn');
-       /* var phoneNumber="";
-        var ancienOperator="";
-        var typePerson="";*/
       function showError(fieldId, errorId) {
             document.getElementById(errorId).style.display = 'block';
         }
@@ -112,10 +109,10 @@ function validateStep1() {
     }
     const deliveryCinUntil = document.getElementById('delveryplace').value.trim();
     if (deliveryCinUntil === '') {
-        showError('delveryplace', 'delveryplace');
+        showError('delveryplace', 'delveryplaceError');
         isValid = false;
     } else {
-        hideError('delveryplace');
+        hideError('delveryplaceError');
     }
     const adresse = document.getElementById('adresse').value.trim();
     if (adresse === '') {
