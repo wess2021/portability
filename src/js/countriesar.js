@@ -13,7 +13,28 @@ $(document).ready(function() {
             console.error('Error fetching countries:', err);
         }
     });
-
+    function fetchPoiList() {
+        const apiUrl = "https://mp-mdd.com/o/ws/poi/list/en_US"; // Define the API URL
+    
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*', // This will NOT help with CORS issues in browsers
+                'Content-Type': 'application/json' // Just as an example
+            },
+            success: function(data) {
+                console.log(data);
+                renderPoiList(data.poiList);
+            },
+            error: function(err) {
+                console.error('Error fetching POI List:', err);
+            }
+        });
+    }
+    
+    // Call the function to fetch the POI list
+    fetchPoiList();
     const governorates = [
         "أريانة",
         "باجة",
