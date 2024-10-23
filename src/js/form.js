@@ -287,12 +287,15 @@ function validateStep1() {
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
                     }
                 });
+                 //   url: 'http://localhost/nety/rest/addportability',
                 $.ajax({
                     url: 'https://preprod.nety.tn/rest/addportability',
+                  
                     type: 'POST',
                     data: formData,
                     processData: false, 
                     contentType: false, 
+                    cache: false,
                     success: function(response) {
                         if (response.success) {
                             toastMixin.fire({
