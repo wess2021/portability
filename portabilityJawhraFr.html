@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/css/modal.css">
 <link rel="stylesheet" href="src/css/styleJawhra.css">
 
 <script src="src/js/form.js"></script>
@@ -21,6 +22,7 @@
         }
 
     </style> 
+   
     <div class="container">
         <header class="header">
             <div class="header-content">
@@ -34,10 +36,8 @@
       </header>          
     <main class="main-content"> 
         <div class="form-panel">
-           <!----> <img src="src/images/image1.png" alt="Top Left Image" class="top-left-img">
+            <img src="src/images/image1.png" alt="Top Left Image" class="top-left-img">
             <img src="src/images/image2.png" alt="Bottom Right Image" class="bottom-right-img">
-          <!--  <button class="second">Success Toast</button>
-            <button class="third">Error Toast</button> -->
             <div id="frenchForm">
             <form id="multiStepForm" enctype="multipart/form-data" novalidate>
                 <!-- Step 1 -->
@@ -85,7 +85,7 @@
                         <option value="">Sélectionner</option>
                         <option value="Mr">Mr</option>
                         <option value="Mme">Mme</option>
-                        <option value="Mlle">Mlle</option>
+                    
                     </select>
                     <div class="error" id="civilityError">Civilité est requise.</div>
                 </div> 
@@ -94,7 +94,7 @@
                     <select class="form-control" id="typeIdentity" name="typeIdentity" required>
                         <option value="">Sélectionner</option>
                         <option value="CIN">CIN</option>
-                        <option value="Passport">Passport</option>
+                        <option value="Passeport">Passeport</option>
                     </select>
                     <div class="error" id="typeIdentityError">Type d'Identité est requis.</div>
                 </div>
@@ -111,24 +111,26 @@
                 <div class="form-group">
                     <label for="cin">Numéro de la pièce d'identité <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="cin" name="cin" required>
-                    <div class="error" id="cinError">CIN est requis.</div>
+                    <div class="error" id="cinError">Numéro de la pièce d'identité  est requis.</div>
+                    <div class="error" id="cinError2">Le CIN doit comporter exactement 8 chiffres.</div>
+                    <div class="error" id="passportError">Le passeport doit comporter au moins 7 caractères alphanumériques.</div>
                 </div>
                 
                 <div class="form-group">
                     <label for="confirmcin">Confirmer le numéro de la pièce d'identité <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="confirmcin" name="confirmcin" required>
-                    <div class="error" id="confirmcinError">Confirmer CIN est requis.</div>
-                    <div class="error" id="cinMatchError" style="color:red; display:none;">Les numéros CIN ne correspondent pas.</div>
+                    <div class="error" id="confirmcinError">Confirmation numéro de la pièce d'identité  est requis.</div>
+                    <div class="error" id="cinMatchError" style="color:red; display:none;">Les numéros des pièces d'identités ne correspondent pas.</div>
                 </div>
                 <div class="form-group">
                     <label for="deliveryCin">Délivrée le <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="deliveryCin" name="deliveryCin" required>
-                    <div class="error" id="deliveryCinError">Date de Délivrance du CIN est requise.</div>
+                    <div class="error" id="deliveryCinError">Date de Délivrance du pièce d'identité est requise.</div>
                 </div>
                 <div class="form-group">
                     <label for="delveryplace">à <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="delveryplace" name="delveryplace" required>
-                    <div class="error" id="delveryplaceError">Lieu de cin est requise.</div>
+                    <div class="error" id="delveryplaceError">Lieu de pièce d'identité est requise.</div>
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse du client <span class="text-danger">*</span></label>
@@ -158,6 +160,7 @@
                     <label for="codePostal">Code Postal <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="codePostal" name="codePostal" required>
                     <div class="error" id="codePostalError">Code Postal est requis.</div>
+                    <div class="error" id="codePostalError2">Code Postal doit comporter exactement 4 chiffres.</div>
                 </div>             
                 <div class="form-group">
                     <label for="birthday">Date de Naissance <span class="text-danger">*</span></label>
@@ -182,7 +185,7 @@
                     <div class="error" id="emailError">Email est requis.</div>
                 </div>
                 <div class="form-group">
-                    <label for="dateMiseEnServiceDes">Date de Mise en Service <span class="text-danger">*</span></label>
+                    <label for="dateMiseEnServiceDes">Date de Mise en Service souhaitée <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
                     <div class="error" id="dateMiseEnServiceDesError">Date de Mise en Service est requise.</div>
                 </div>
@@ -210,8 +213,9 @@
                 <div class="form-group">
                     <label for="confirmation">
                         <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px; " required>
-                        J’ai lu et approuvé les clauses du mandat de portabilité <span class="text-danger">*</span>
-                    </label>
+                        J’ai lu et approuvé les &nbsp;
+                        <a href="#" id="openModal" style="text-decoration: underline; color: black;">clauses du mandat de portabilité</a>
+                                      </label>
                     <div class="error" id="confirmationError">Vous devez confirmer les informations.</div>
                 </div>
             </div>
@@ -223,12 +227,59 @@
         </div>
         </form>
         </div>       
-        </div>      
+        </div>  
+        
+<!-- Modal Structure -->
+<div id="clauseModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 style="text-align: center;">Clauses du Mandat de Portabilité</h2>
+            <span class="close-btn" id="closeModal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h3 style="text-align: center;">Mandat de Portabilité</h1>
+    
+            <p class="section-title">
+                Je soussigné(é), titulaire du contrat/abonnement téléphonique désigné par le(s) numéro(s) ci-dessus, déclare :
+            </p>
+            <p class="section-title">– Donner mandat à la Société Nationale des Télécommunications «TUNISIE TELECOM » ci-après dénommé « Opérateur receveur » :</p>
+            <p class="section-title">
+                Pour effectuer en mon nom et pour mon compte, les démarches nécessaires auprès de mon opérateur/fournisseur actuel ci-dessus indiqué, afin de demander la résiliation du (des) contrat(s) désigné(s) par le(s) numéro(s) ci-dessus pour le portage du (des) numéro(s) susvisé(s).
+            </p>
+            
+            <p class="section-title">– Reconnaître :</p>
+            <ul class="list-items">
+                <li>Le délai de portage nominal est de 6 jours ouvrables. Le jour et la tranche horaire de réalisation du portage seront confirmés par « TUNISIE TELECOM » par SMS. Une interruption de service peut intervenir le jour du portage effectif. Cette interruption ne peut être supérieure à quatre (4) heures.</li>
+                <li>La demande de portage peut être annulée dans un délai de 24 heures à partir de la date de son dépôt. L’annulation doit être adressée à « TUNISIE TELECOM » qui demeure seul compétent pour annuler la demande de portabilité auprès de mon opérateur actuel.</li>
+                <li>Une fois la portabilité mise en œuvre, je ne pourrai pas demander la portabilité vers un autre opérateur avant une période de deux (2) mois et avec un maximum de 3 portages par an.</li>
+                <li>La demande doit être présentée par le titulaire du contrat ou une personne dûment mandatée.</li>
+                <li>Le numéro doit être actif le jour de portage.</li>
+                <li>Le numéro ne doit pas faire l’objet d’une autre demande de portage non encore exécutée.</li>
+                <li>La demande ne sera pas acceptée si je suis encore en période d’engagement chez mon opérateur actuel.</li>
+                <li>La résiliation de mon contrat auprès de l’opérateur actuel ne prend effet que le jour du portage effectif.</li>
+                <li>L’opérateur receveur ne peut être tenu responsable en cas de refus de transfert par mon opérateur actuel.</li>
+                <li>La portabilité n’emporte pas transfert des services contractuels de mon opérateur initial.</li>
+                <li>Le portage entraine la perte d’avantages (crédits, bonus non consommés, points de fidélité).</li>
+            </ul>
+            
+            <p class="section-title">– M’engager :</p>
+            <p class="section-title">
+                À adresser à « TUNISIE TELECOM » toute demande ou réclamation concernant l’exécution du présent mandat.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn3 btn-success buttonet" id="closeModalFooter">Fermer</button>
+        </div>
+    </div>
+</div>
+      
     </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
 <script src="src/js/countriesfr.js"></script>
+<script src="src/js/modal.js"></script>
 <div class="container-footer">
     <footer id="footer">
       <div class="footerfr">
@@ -237,38 +288,5 @@
     </footer>
 </div>
     </div>
-   <!-- <script>
-        // Define toastMixin first
-        var toastMixin = Swal.mixin({
-            toast: true,
-            icon: 'success',
-            title: 'General Title',
-            animation: true,
-            position: 'top-right',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-            }
-        });
-    
-        // Now attach event listeners after defining toastMixin
-        document.querySelector(".second").addEventListener('click', function() {
-            toastMixin.fire({
-                animation: true,
-                title: 'Signed in Successfully'
-            });
-        });
-    
-        document.querySelector(".third").addEventListener('click', function() {
-            toastMixin.fire({
-                title: 'Wrong Password',
-                icon: 'error'
-            });
-        });
-    </script>-->
-    
 </body>
 </html>

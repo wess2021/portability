@@ -8,11 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/styleCss.css">
+    <link rel="stylesheet" href="src/css/modal.css">
     <script src="src/js/form.js"></script>
-
-<!-- Bootstrap JS and dependencies (Optional if you're not using any Bootstrap JavaScript functionality) -->
-
-
     <style>
         body {
             direction: rtl; 
@@ -57,7 +54,6 @@ input[type="date" i] {
     <main class="main-content">  
         <div class="form-panel">
             <img src="src/images/logo1css.png" alt="Top Left Image" class="top-left-img">
-           <!-- <img src="src/images/image2.png" alt="Bottom Right Image" class="bottom-right-img">-->
             <div id="frenchForm">
             <form id="multiStepForm" enctype="multipart/form-data" novalidate>
                 <!-- Step 1 -->
@@ -104,7 +100,7 @@ input[type="date" i] {
                         <option value="">إختر</option>
                         <option value="Mr">سيد</option>
                         <option value="Mme">سيدة</option>
-                        <option value="Mlle">آنسة</option>
+                  
                     </select>
                     <div class="error" id="civilityError">التحية إجبارية</div>
                 </div> 
@@ -131,6 +127,8 @@ input[type="date" i] {
                     <label for="cin">رقم بطاقة الهوية<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="cin" name="cin" required>
                     <div class="error" id="cinError">رقم بطاقة الهوية إجباري.</div>
+                    <div class="error" id="cinError2">يجب أن يتكون رقم بطاقة التعريف من 8 أرقام بالضبط.</div>
+                    <div class="error" id="passportError">يجب أن يحتوي جواز السفر على 7 أحرف أبجدية رقمية على الأقل.</div>
                 </div>
                 <div class="form-group">
                     <label for="confirmcin">تأكيد رقم بطاقة الهوية<span class="text-danger">*</span></label>
@@ -176,6 +174,7 @@ input[type="date" i] {
                     <label for="codePostal">الرمز البريدي <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="codePostal" name="codePostal" required>
                     <div class="error" id="codePostalError">الرمز البريدي إجباري</div>
+                    <div class="error" id="codePostalError2">يجب أن يتكون الرمز البريدي من 4 أرقام بالضبط.</div>
                 </div>             
                 <div class="form-group">
                     <label for="birthday">تاريخ الميلاد  <span class="text-danger">*</span></label>
@@ -228,7 +227,7 @@ input[type="date" i] {
                 <div class="form-group">
                     <label for="confirmation">
                         <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px; margin-top: 28px;" required>
-                        لقد قرأت ووافقت على بنود ولاية النقل
+                        &nbsp; لقد قرأت ووافقت على   <a href="#" id="openModal" style="text-decoration: underline; color: black;">بنود ولاية النقل</a> 
                         <span class="text-danger">*</span></label>
                     <div class="error" id="confirmationError">حقل إجباري.</div>
                 </div>
@@ -242,11 +241,54 @@ input[type="date" i] {
         </form>
         </div>
         <!-- end of french form -->       
-        </div>       
+        </div> 
+        <div id="clauseModal" class="modal" dir="rtl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 style="text-align: center;">شروط تفويض نقل الأرقام</h2>
+                    <span class="close-btn" id="closeModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h3 style="text-align: center;">تفويض نقل الأرقام</h1>
+            
+                    <p class="section-title" style="text-align: right;">
+                        أنا الموقع أدناه، صاحب العقد/الاشتراك الهاتفي المعين بالرقم (الأرقام) المذكور أعلاه، أصرح بما يلي:
+                    </p>
+                    <p class="section-title" style="text-align: right;">– أفوض الشركة الوطنية للاتصالات «اتصالات تونس» والمشار إليها فيما بعد بـ«المشغل المستلم»:</p>
+                    <p class="section-title" style="text-align: right;">
+                        للقيام نيابةً عني وبالنيابة عن حسابي بالإجراءات اللازمة لدى مشغلي/مزودي الحالي المذكور أعلاه، وذلك لطلب إنهاء العقد (العقود) المحدد بالرقم (الأرقام) أعلاه، لنقل الرقم (الأرقام) المشار إليه أعلاه.
+                    </p>
+                    
+                    <p class="section-title" style="text-align: right;">– أقر بـ:</p>
+                    <ul class="list-items">
+                        <li>أن المدة الاسمية لنقل الرقم هي 6 أيام عمل. سيتم تأكيد يوم ومدة تنفيذ النقل من قبل «اتصالات تونس» عبر رسالة نصية. قد يحدث انقطاع في الخدمة يوم النقل الفعلي، ولا يمكن أن يتجاوز هذا الانقطاع أربع (4) ساعات.</li>
+                        <li>يمكن إلغاء طلب النقل في غضون 24 ساعة من تاريخ تقديمه. يجب توجيه طلب الإلغاء إلى «اتصالات تونس» التي تظل الجهة الوحيدة المسؤولة عن إلغاء طلب النقل لدى المشغل الحالي.</li>
+                        <li>بمجرد تنفيذ نقل الرقم، لا يمكنني طلب النقل إلى مشغل آخر قبل فترة لا تقل عن شهرين (2)، وبحد أقصى ثلاثة (3) عمليات نقل سنوياً.</li>
+                        <li>يجب أن يتم تقديم الطلب من قبل صاحب العقد أو شخص مفوض حسب الأصول.</li>
+                        <li>يجب أن يكون الرقم نشطاً في يوم النقل.</li>
+                        <li>يجب ألا يكون الرقم موضوع طلب نقل آخر لم يتم تنفيذه بعد.</li>
+                        <li>لن يتم قبول الطلب إذا كنت لا أزال في فترة الالتزام مع مشغلي الحالي.</li>
+                        <li>يصبح إلغاء عقدي مع المشغل الحالي ساري المفعول فقط في يوم النقل الفعلي.</li>
+                        <li>لا يمكن تحميل المشغل المستلم المسؤولية في حال رفض المشغل الحالي نقل الرقم.</li>
+                        <li>نقل الرقم لا يعني نقل الخدمات التعاقدية من مشغلي الأولي.</li>
+                        <li>قد يؤدي النقل إلى فقدان المزايا (الأرصدة، المكافآت غير المستخدمة، نقاط الولاء).</li>
+                    </ul>
+                    
+                    <p class="section-title" style="text-align: right;">– أتعهد بـ:</p>
+                    <p class="section-title" style="text-align: right;">
+                        بتوجيه أي طلب أو شكوى تتعلق بتنفيذ هذا التفويض إلى «اتصالات تونس».
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn3 btn-success buttonet" id="closeModalFooter">إغلاق</button>
+                </div>
+            </div>
+        </div>             
     </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="src/js/countriesar.js"></script>
+<script src="src/js/modal.js"></script>
 <div class="container-footer">
     <footer id="footer">
         <div class="footerar">

@@ -146,7 +146,10 @@ function validateStep1() {
     if (codePostal === '') {
         showError('codePostal', 'codePostalError');
         isValid = false;
-    } else {
+    } else if (!/^\d{4}$/.test(codePostal)) {
+        showError('codePostal', 'codePostalError2');
+        isValid = false;
+    }else {
         hideError('codePostalError');
     }
     const birthday = document.getElementById('birthday').value.trim();
@@ -218,6 +221,32 @@ function validateStep1() {
     } else {
         hideError('confirmationError');
     }
+
+//verif cin or passport number of caractère
+if (typeIdentity === '') {
+    showError('typeIdentity', 'typeIdentityError');
+    isValid = false;
+} else {
+    if (typeIdentity === 'CIN') {
+        // Validate CIN: Must be 8 digits
+        if (!/^\d{8}$/.test(cin)) {
+            showError('cin', 'cinError2');
+           // document.getElementById('cinError2').innerText = 'Le CIN doit comporter exactement 8 chiffres.';
+            isValid = false;
+        } else {
+            hideError('cinError2');
+        }
+    } else if (typeIdentity === 'Passeport') {
+        // Validate Passport: Must be at least 7 alphanumeric characters
+        if (cin.length < 7 || !/^[a-zA-Z0-9]+$/.test(cin)) {
+            showError('cin', 'passportError');
+           // document.getElementById('passportError').innerText = 'Le passeport doit comporter au moins 7 caractères alphanumériques.';
+            isValid = false;
+        } else {
+            hideError('passportError');
+        }
+    }
+}
     return isValid;
 }
         nextBtn.addEventListener('click', function() {
@@ -241,6 +270,9 @@ function validateStep1() {
 
         form.addEventListener('submit', function(event) {
             event.preventDefault(); 
+            document.querySelectorAll('.error').forEach(function(errorElement) {
+                errorElement.style.display = 'none';
+            });
           if (validateStep2()) {
                 const formData = new FormData(form);
                 const data = {
