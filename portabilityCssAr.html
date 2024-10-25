@@ -98,9 +98,7 @@ input[type="date" i] {
                     <label for="civility">التحية  <span class="text-danger">*</span></label>
                     <select class="form-control" id="civility" name="civility" required>
                         <option value="">إختر</option>
-                        <option value="Mr">سيد</option>
-                        <option value="Mme">سيدة</option>
-                  
+                        <option value="Mr">سيد</option>               
                     </select>
                     <div class="error" id="civilityError">التحية إجبارية</div>
                 </div> 
@@ -197,6 +195,7 @@ input[type="date" i] {
                     <label for="email">البريد الإلكتروني <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email" name="email" required>
                     <div class="error" id="emailError">البريد الإلكتروني إجباري</div>
+                    <div class="error" id="emailError2">الرجاء إدخال بريد إلكتروني صالح ينتهي بـ @example.com</div>
                 </div>
                 <div class="form-group">
                     <label for="dateMiseEnServiceDes">تاريخ بدء الخدمة<span class="text-danger">*</span></label>
@@ -207,16 +206,19 @@ input[type="date" i] {
                     <label for="cinRecto">ارفع نسخة من الهوية <span class="text-danger">*</span></label>
                     <input type="file"  class="form-control" id="cinRecto" name="cinRecto" accept="image/*,application/pdf"  required>
                     <div class="error" id="cinRectoError">تأكيد رفع الهوية إجباري.</div>
+                    <div class="error" id="cinRectoError2">يُسمح فقط بملفات الصور أو PDF.</div>
                 </div>
                 <div class="form-group">
                     <label for="cinVerso">ارفع نسخة من الهوية - verso <span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="cinVerso" name="cinVerso" accept="image/*,application/pdf"  required>
                     <div class="error" class="form-control" id="cinVersoError">تأكيد رفع الهوية إجباري</div>
+                    <div class="error" id="cinVersoError2">يُسمح فقط بملفات الصور أو PDF.</div>
                 </div>
                 <div class="form-group">
                     <label for="codeRio">   الخاص بك RIO قم بتحميل التقاط رمز  <span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="codeRio" name="codeRio" accept="image/*,application/pdf"  alt="Tapez *172# pour obtenir votre code RIO" required>
                     <div class="error" id="codeRioError">  الخاص بك إجباري RIO قم بتحميل التقاط رمز   </div>
+                    <div class="error" id="codeRioError2">يُسمح فقط بملفات الصور أو PDF.</div>
                     <small>اكتب *172# للحصول على رمز RIO الخاص بك</small>
                 </div>
                 <div class="form-group">

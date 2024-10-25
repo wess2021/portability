@@ -29,6 +29,7 @@ function validateStep1() {
         isValid = false;
     }else {
         hideError('phoneNumberError');
+        hideError('phoneNumberdigitsError');
     }
     if (ancienOperator === '') {
         showError('ancienOperator', 'ancienOperatorError');
@@ -49,7 +50,6 @@ function validateStep1() {
     return isValid;
 }
         function validateStep2() {
-  
     let isValid = true;
     const civility = document.getElementById('civility').value.trim();
     if (civility === '') {
@@ -151,6 +151,7 @@ function validateStep1() {
         isValid = false;
     }else {
         hideError('codePostalError');
+        hideError('codePostalError2');
     }
     const birthday = document.getElementById('birthday').value.trim();
     if (birthday === '') {
@@ -168,6 +169,7 @@ function validateStep1() {
         isValid = false;
     }else {
         hideError('phoneError');
+        hideError('phonedigitsError');
     }
     const phoneDesired = document.getElementById('phoneDesired').value.trim();
     if (phoneDesired === '') {
@@ -178,13 +180,20 @@ function validateStep1() {
         isValid = false;
     }else {
         hideError('phoneDesiredError');
+        hideError('phonedesdigitsError');
     }
     const email = document.getElementById('email').value.trim();
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    console.log("email form:",!emailPattern.test(email));
     if (email === '') {
         showError('email', 'emailError');
         isValid = false;
+    } else if (!emailPattern.test(email)) {
+        showError('email', 'emailError2');
+        isValid = false;
     } else {
         hideError('emailError');
+        hideError('emailError2');
     }
     const dateMiseEnServiceDes = document.getElementById('dateMiseEnServiceDes').value.trim();
     if (dateMiseEnServiceDes === '') {
@@ -193,26 +202,44 @@ function validateStep1() {
     } else {
         hideError('dateMiseEnServiceDesError');
     }
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif','image/jpg', 'application/pdf'];
     const cinRecto = document.getElementById('cinRecto').files.length === 0;
+    const cinRectoInput = document.getElementById('cinRecto');
+    const cinRectoFile = cinRectoInput.files[0];
     if (cinRecto) {
         showError('cinRecto', 'cinRectoError');
         isValid = false;
-    } else {
+    } else if (!allowedTypes.includes(cinRectoFile.type)) {
+        showError('cinRecto', 'cinRectoError2');
+        isValid = false;
+    }else {
         hideError('cinRectoError');
     }
     const cinVerso = document.getElementById('cinVerso').files.length === 0;
+    const cinVersoInput = document.getElementById('cinVerso');
+    const cinVersoFile = cinVersoInput.files[0];
     if (cinVerso) {
         showError('cinVerso', 'cinVersoError');
         isValid = false;
-    } else {
+    } else if (!allowedTypes.includes(cinVersoFile.type)) {
+        showError('cinVerso', 'cinVersoError2');
+        isValid = false;
+    }else {
         hideError('cinVersoError');
+        hideError('cinVersoError2');
     }
     const codeRio = document.getElementById('codeRio').value.trim();
+    const codeRioInput = document.getElementById('cinVerso');
+    const codeRioFile = codeRioInput.files[0];
     if (codeRio === '') {
         showError('codeRio', 'codeRioError');
         isValid = false;
+    } else if (!allowedTypes.includes(codeRioFile.type)) {
+        showError('codeRio', 'codeRioError2');
+        isValid = false;
     } else {
         hideError('codeRioError');
+        hideError('codeRioError2');
     }
     const confirmation = document.getElementById('confirmation').checked;
     if (!confirmation) {
@@ -221,26 +248,20 @@ function validateStep1() {
     } else {
         hideError('confirmationError');
     }
-
-//verif cin or passport number of caractère
 if (typeIdentity === '') {
     showError('typeIdentity', 'typeIdentityError');
     isValid = false;
 } else {
     if (typeIdentity === 'CIN') {
-        // Validate CIN: Must be 8 digits
         if (!/^\d{8}$/.test(cin)) {
             showError('cin', 'cinError2');
-           // document.getElementById('cinError2').innerText = 'Le CIN doit comporter exactement 8 chiffres.';
             isValid = false;
         } else {
             hideError('cinError2');
         }
     } else if (typeIdentity === 'Passeport') {
-        // Validate Passport: Must be at least 7 alphanumeric characters
         if (cin.length < 7 || !/^[a-zA-Z0-9]+$/.test(cin)) {
             showError('cin', 'passportError');
-           // document.getElementById('passportError').innerText = 'Le passeport doit comporter au moins 7 caractères alphanumériques.';
             isValid = false;
         } else {
             hideError('passportError');

@@ -44,28 +44,28 @@
             <p class="soustitlefr"></p>
             <div id="custom-alert-container"></div>
             <div class="form-group">
-                <label for="phoneNumber">Numéro de Téléphone Mobile <span class="text-danger">*</span></label>
+                <label for="phoneNumber">Numéro de téléphone mobile <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
-                <div class="error" id="phoneNumberError">Numéro de Téléphone Mobile est requis.</div>
+                <div class="error" id="phoneNumberError">Numéro de téléphone mobile est requis.</div>
                 <div class="error" id="phoneNumberdigitsError">Téléphone doit être un numéro valide de 8 chiffres.</div>
             </div>
             <div class="form-group">
-                <label for="ancienOperator">Ancien Opérateur <span class="text-danger">*</span></label>
+                <label for="ancienOperator">Ancien opérateur <span class="text-danger">*</span></label>
                 <select id="ancienOperator" class="form-control" name="ancienOperator" required>
                     <option value="">Sélectionner</option>
                     <option value="Ooredoo">Ooredoo</option>
                     <option value="Orange">Orange</option>
                 </select>
-                <div class="error" id="ancienOperatorError">Ancien Opérateur est requis.</div>
+                <div class="error" id="ancienOperatorError">Ancien opérateur est requis.</div>
             </div>
             <div class="form-group">
-                <label for="typePerson">Type de Personne <span class="text-danger">*</span></label>
+                <label for="typePerson">Type de personne <span class="text-danger">*</span></label>
                 <select id="typePerson" class="form-control" name="typePerson" required>
                     <option value="">Sélectionner</option>
-                    <option value="Individual">Individuel</option>
-                    <option value="Company">Entreprise</option>
+                    <option value="Personne physique">Personne physique</option>
+                    <option value="Personne morale">Personne morale</option>
                 </select>
-                <div class="error" id="typePersonError">Type de Personne est requis.</div>
+                <div class="error" id="typePersonError">Type de personne est requis.</div>
             </div>
 
             <div class="button-container">
@@ -88,13 +88,13 @@
                     <div class="error" id="civilityError">Civilité est requise.</div>
                 </div> 
                 <div class="form-group">
-                    <label for="typeIdentity">Type d'Identité <span class="text-danger">*</span></label>
+                    <label for="typeIdentity">Type d'identité <span class="text-danger">*</span></label>
                     <select class="form-control" id="typeIdentity" name="typeIdentity" required>
                         <option value="">Sélectionner</option>
                         <option value="CIN">CIN</option>
                         <option value="Passeport">Passeport</option>
                     </select>
-                    <div class="error" id="typeIdentityError">Type d'Identité est requis.</div>
+                    <div class="error" id="typeIdentityError">Type d'identité est requis.</div>
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prénom <span class="text-danger">*</span></label>
@@ -157,13 +157,13 @@
                 <div class="form-group">
                     <label for="codePostal">Code Postal <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="codePostal" name="codePostal" required>
-                    <div class="error" id="codePostalError">Code Postal est requis.</div>
-                    <div class="error" id="codePostalError2">Code Postal doit comporter exactement 4 chiffres.</div>
+                    <div class="error" id="codePostalError">Code postal est requis.</div>
+                    <div class="error" id="codePostalError2">Code postal doit comporter exactement 4 chiffres.</div>
                 </div>             
                 <div class="form-group">
-                    <label for="birthday">Date de Naissance <span class="text-danger">*</span></label>
+                    <label for="birthday">Date de naissance <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="birthday" name="birthday" required>
-                    <div class="error" id="birthdayError">Date de Naissance est requise.</div>
+                    <div class="error" id="birthdayError">Date de naissance est requise.</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Numéro de téléphone de contact <span class="text-danger">*</span></label>
@@ -174,37 +174,42 @@
                 <div class="form-group">
                     <label for="phoneDesired">Je désire porter le numéro suivant<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required>
-                    <div class="error" id="phoneDesiredError">Téléphone Désiré est requis.</div>
+                    <div class="error" id="phoneDesiredError">Téléphone désiré est requis.</div>
                     <div class="error" id="phonedesdigitsError">Téléphone doit être un numéro valide de 8 chiffres.</div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email" name="email" required>
                     <div class="error" id="emailError">Email est requis.</div>
+                    <div class="error" id="emailError2">Veuillez entrer un email valide se terminant par @exemple.com</div>
                 </div>
                 <div class="form-group">
-                    <label for="dateMiseEnServiceDes">Date de Mise en Service souhaitée <span class="text-danger">*</span></label>
+                    <label for="dateMiseEnServiceDes">Date de mise en service souhaitée <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
-                    <div class="error" id="dateMiseEnServiceDesError">Date de Mise en Service est requise.</div>
+                    <div class="error" id="dateMiseEnServiceDesError">Date de mise en service est requise.</div>
+                   
                 </div>
                 <div class="form-group">
-                    <label for="cinRecto">Uploadez votre CIN Recto <span class="text-danger">*</span></label>
+                    <label for="cinRecto">Uploadez votre CIN recto <span class="text-danger">*</span></label>
                     <input type="file"  class="form-control" id="cinRecto" name="cinRecto" accept="image/*,application/pdf"  required>
-                    <div class="error" id="cinRectoError">CIN Recto est requis.</div>
+                    <div class="error" id="cinRectoError">CIN recto est requis.</div>
+                    <div class="error" id="cinRectoError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                 </div>
                 <div class="form-group">
-                    <label for="cinVerso">Uploadez votre CIN Verso<span class="text-danger">*</span></label>
+                    <label for="cinVerso">Uploadez votre CIN verso<span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="cinVerso" name="cinVerso" accept="image/*,application/pdf"  required>
-                    <div class="error" class="form-control" id="cinVersoError">CIN Verso est requis.</div>
+                    <div class="error" class="form-control" id="cinVersoError">CIN verso est requis.</div>
+                    <div class="error" id="cinVersoError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                 </div>
                 <div class="form-group">
                     <label for="codeRio">Uploadez votre capture du code RIO<span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="codeRio" name="codeRio" accept="image/*,application/pdf"  alt="Tapez *172# pour obtenir votre code RIO" required>
                     <div class="error" id="codeRioError">Code RIO est requis.</div>
+                    <div class="error" id="codeRioError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                     <small>Tapez *172# pour obtenir votre code RIO</small>
                 </div>
                 <div class="form-group">
-                    <label for="adresseLivraison">Adresse Livraison (optional)</label>
+                    <label for="adresseLivraison">Adresse de livraison (optional)</label>
                     <input id="adresseLivraison" name="adresseLivraison" rows="5" class="form-control" placeholder="Si l'adresse de livraison est différente de l'adresse du domicile du client"/>
                 </div>
                 <input type="hidden" class="form-control" id="from" name="from" value="CSS"  required>
@@ -214,7 +219,7 @@
                         J’ai lu et approuvé les &nbsp;
                         <a href="#" id="openModal" style="text-decoration: underline; color: black;">clauses du mandat de portabilité</a> <span class="text-danger">*</span>
                     </label>
-                    <div class="error" id="confirmationError">Vous devez confirmer les informations.</div>
+                    <div class="error" id="confirmationError">Veuillez cocher pour accepter les conditions.</div>
                 </div>
             </div>
             <input type="hidden" id="hiddenPhoneNumber" name="phoneNumber">
