@@ -229,7 +229,7 @@ function validateStep1() {
         hideError('cinVersoError2');
     }
     const codeRio = document.getElementById('codeRio').value.trim();
-    const codeRioInput = document.getElementById('cinVerso');
+    const codeRioInput = document.getElementById('codeRio');
     const codeRioFile = codeRioInput.files[0];
     if (codeRio === '') {
         showError('codeRio', 'codeRioError');
