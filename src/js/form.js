@@ -260,7 +260,7 @@ if (typeIdentity === '') {
             hideError('cinError2');
         }
     } else if (typeIdentity === 'Passeport') {
-        if (cin.length < 7 || !/^[a-zA-Z0-9]+$/.test(cin)) {
+        if (cin.length < 7 || cin.length > 13 || !/^[a-zA-Z0-9]+$/.test(cin)) {
             showError('cin', 'passportError');
             isValid = false;
         } else {

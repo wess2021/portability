@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="src/css/modal.css">
 <link rel="stylesheet" href="src/css/styleJawhra.css">
 
-<script src="src/js/form.js"></script>
+<script src="src/js/formcoded.js"></script>
 </head>
 <body>
     <style>
@@ -30,7 +30,7 @@
                     <img src="src/images/jawhra.png" alt="Logo" />
                 </div>
                 <div class="language-switcher">
-                    <button type="button" onclick="window.location.href='portabilityJawhraAr.html'">بالعربية</button>
+                    <button type="button" onclick="window.location.href='jawhraAr.html'">بالعربية</button>
                 </div>
             </div>
       </header>          
@@ -87,7 +87,7 @@
                         <option value="Mme">Mme</option>
                     
                     </select>
-                    <div class="error" id="civilityError">Civilité est requise.</div>
+                    <div class="error" id="civilityError">Veuillez sélectionner une civilité.</div>
                 </div> 
                 <div class="form-group">
                     <label for="typeIdentity">Type d'Identité <span class="text-danger">*</span></label>
@@ -96,22 +96,22 @@
                         <option value="CIN">CIN</option>
                         <option value="Passeport">Passeport</option>
                     </select>
-                    <div class="error" id="typeIdentityError">Type d'identité est requis.</div>
+                    <div class="error" id="typeIdentityError">Veuillez sélectionner un type d'identité</div>
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prénom <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="prenom" name="prenom" required>
-                    <div class="error" id="prenomError">Prénom est requis.</div>
+                    <div class="error" id="prenomError">Veuillez entrer votre prénom</div>
                 </div>
                 <div class="form-group">
                     <label for="nom">Nom <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nom" name="nom" required>
-                    <div class="error" id="nomError">Nom est requis.</div>
+                    <div class="error" id="nomError">Veuillez entrer votre nom</div>
                 </div>
                 <div class="form-group">
                     <label for="cin">Numéro de la pièce d'identité <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="cin" name="cin" required>
-                    <div class="error" id="cinError">Numéro de la pièce d'identité  est requis.</div>
+                    <div class="error" id="cinError">Veuillez entrer le numéro de votre pièce d'identité</div>
                     <div class="error" id="cinError2">Le CIN doit comporter exactement 8 chiffres.</div>
                     <div class="error" id="passportError">Le passeport doit comporter au moins 7 caractères alphanumériques.</div>
                 </div>
@@ -119,94 +119,94 @@
                 <div class="form-group">
                     <label for="confirmcin">Confirmer le numéro de la pièce d'identité <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="confirmcin" name="confirmcin" required>
-                    <div class="error" id="confirmcinError">Confirmation numéro de la pièce d'identité  est requis.</div>
+                    <div class="error" id="confirmcinError">Veuillez confirmer le numéro de votre pièce d'identité</div>
                     <div class="error" id="cinMatchError" style="color:red; display:none;">Les numéros des pièces d'identités ne correspondent pas.</div>
                 </div>
                 <div class="form-group">
                     <label for="deliveryCin">Délivrée le <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="deliveryCin" name="deliveryCin" required>
-                    <div class="error" id="deliveryCinError">Date de délivrance du pièce d'identité est requise.</div>
+                    <div class="error" id="deliveryCinError">Veuillez entrer la date de délivrance de votre pièce d'identité</div>
                 </div>
                 <div class="form-group">
                     <label for="delveryplace">à <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="delveryplace" name="delveryplace" required>
-                    <div class="error" id="delveryplaceError">Lieu de pièce d'identité est requise.</div>
+                    <div class="error" id="delveryplaceError">Veuillez entrer le lieu de délivrance de votre pièce d'identité</div>
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse du client <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="adresse" name="adresse" required>
-                    <div class="error" id="adresseError">Adresse est requise.</div>
+                    <div class="error" id="adresseError">Veuillez entrer votre adresse</div>
                 </div>
                 <div class="form-group">
                     <label for="pays">Pays <span class="text-danger">*</span></label>
                     <select id="pays"  name="pays" class="form-control" required>
                         <option value="">Sélectionnez un pays</option>
                     </select>
-                    <div class="error" id="paysError">Pays est requis.</div>
+                    <div class="error" id="paysError">Veuillez sélectionner un pays</div>
                 </div>
                 <div class="form-group">
                     <label for="gouvernorat">Gouvernorat <span class="text-danger">*</span></label>
                     <select id="gouvernorat" name="gouvernorat" class="form-control" required>
                         <option value="">Sélectionnez un gouvernorat</option>
                     </select>
-                    <div class="error" id="gouvernoratError">Gouvernorat est requis.</div>
+                    <div class="error" id="gouvernoratError">Veuillez sélectionner un gouvernorat</div>
                 </div>
                 <div class="form-group">
                     <label for="ville">Ville <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="ville" name="ville" required>
-                    <div class="error" id="villeError">Ville est requise.</div>
+                    <div class="error" id="villeError">Veuillez entrer le nom de la ville</div>
                 </div>
                 <div class="form-group">
                     <label for="codePostal">Code Postal <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="codePostal" name="codePostal" required>
-                    <div class="error" id="codePostalError">Code postal est requis.</div>
+                    <div class="error" id="codePostalError">Veuillez entrer le code postal</div>
                     <div class="error" id="codePostalError2">Code postal doit comporter exactement 4 chiffres.</div>
                 </div>             
                 <div class="form-group">
                     <label for="birthday">Date de naissance <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="birthday" name="birthday" required>
-                    <div class="error" id="birthdayError">Date de naissance est requise.</div>
+                    <div class="error" id="birthdayError">Veuillez entrer votre date de naissance</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Numéro de téléphone de contact <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phone" name="phone" required>
-                    <div class="error" id="phoneError">Téléphone est requis.</div>
+                    <div class="error" id="phoneError">Veuillez entrer votre numéro de téléphone</div>
                     <div class="error" id="phonedigitsError">Téléphone doit être un numéro valide de 8 chiffres.</div>
                 </div>
                 <div class="form-group">
                     <label for="phoneDesired">Je désire porter le numéro suivant<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required>
-                    <div class="error" id="phoneDesiredError">Téléphone désiré est requis.</div>
+                    <div class="error" id="phoneDesiredError">Veuillez entrer le numéro de téléphone souhaité</div>
                     <div class="error" id="phonedesdigitsError">Téléphone doit être un numéro valide de 8 chiffres.</div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email" name="email" required>
-                    <div class="error" id="emailError">Email est requis.</div>
+                    <div class="error" id="emailError">Veuillez entrer votre adresse email</div>
                     <div class="error" id="emailError2">Veuillez entrer un email valide se terminant par @exemple.com</div>
 
                 </div>
                 <div class="form-group">
                     <label for="dateMiseEnServiceDes">Date de mise en service souhaitée <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
-                    <div class="error" id="dateMiseEnServiceDesError">Date de mise en service est requise.</div>
+                    <div class="error" id="dateMiseEnServiceDesError">Veuillez entrer la date de mise en service souhaitée</div>
                 </div>
                 <div class="form-group">
                     <label for="cinRecto">Uploadez votre CIN Recto <span class="text-danger">*</span></label>
                     <input type="file"  class="form-control" id="cinRecto" name="cinRecto" accept="image/*,application/pdf"  required>
-                    <div class="error" id="cinRectoError">CIN recto est requis.</div>
+                    <div class="error" id="cinRectoError">Veuillez télécharger une image de votre CIN (recto)</div>
                     <div class="error" id="cinRectoError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                 </div>
                 <div class="form-group">
                     <label for="cinVerso">Uploadez votre CIN Verso<span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="cinVerso" name="cinVerso" accept="image/*,application/pdf"  required>
-                    <div class="error" class="form-control" id="cinVersoError">CIN Verso est requis.</div>
+                    <div class="error" class="form-control" id="cinVersoError">Veuillez télécharger une image de votre CIN (verso) </div>
                     <div class="error" id="cinVersoError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                 </div>
                 <div class="form-group">
                     <label for="codeRio">Uploadez votre capture du code RIO<span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="codeRio" name="codeRio" accept="image/*,application/pdf"  alt="Tapez *172# pour obtenir votre code RIO" required>
-                    <div class="error" id="codeRioError">Code RIO est requis.</div>
+                    <div class="error" id="codeRioError">Veuillez télécharger une image de votre code RIO </div>
                     <div class="error" id="codeRioError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                     <small>Tapez *172# pour obtenir votre code RIO</small>
                 </div>

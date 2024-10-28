@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/styleJawhra.css">
     <link rel="stylesheet" href="src/css/modal.css">
-    <script src="src/js/form.js"></script>
+    <script src="src/js/formcoded.js"></script>
    
     <style>
         body {
@@ -104,124 +104,124 @@ input[type="date" i] {
                         <option value="Mme">سيدة</option>
              
                     </select>
-                    <div class="error" id="civilityError">التحية إجبارية</div>
+                    <div class="error" id="civilityError">يرجى اختيار الحالة الاجتماعية</div>
                 </div> 
                 <div class="form-group">
                     <label for="typeIdentity">نوع الهوية <span class="text-danger">*</span></label>
                     <select class="form-control" id="typeIdentity" name="typeIdentity" required>
                         <option value="">إختر</option>
                         <option value="CIN">بطاقة التعريف الوطنية</option>
-                        <option value="Passport">جواز السفر</option>
+                        <option value="Passeport">جواز السفر</option>
                     </select>
-                    <div class="error" id="typeIdentityError">نوع الهوية إجباري</div>
+                    <div class="error" id="typeIdentityError">يرجى اختيار نوع الهوية</div>
                 </div>
                 <div class="form-group">
                     <label for="prenom">الاسم  <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="prenom" name="prenom" required>
-                    <div class="error" id="prenomError">الاسم إجباري</div>
+                    <div class="error" id="prenomError">يرجى إدخال الاسم الأول</div>
                 </div>
                 <div class="form-group">
                     <label for="nom">اللقب <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nom" name="nom" required>
-                    <div class="error" id="nomError">اللقب إجباري</div>
+                    <div class="error" id="nomError">يرجى إدخال اللقب</div>
                 </div>
                 <div class="form-group">
                     <label for="cin">رقم بطاقة الهوية<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="cin" name="cin" required>
-                    <div class="error" id="cinError">رقم بطاقة الهوية إجباري.</div>
+                    <div class="error" id="cinError">يرجى إدخال رقم بطاقة الهوية</div>
                     <div class="error" id="cinError2">يجب أن يتكون رقم بطاقة التعريف من 8 أرقام بالضبط.</div>
                     <div class="error" id="passportError">يجب أن يحتوي جواز السفر على 7 أحرف أبجدية رقمية على الأقل.</div>
                 </div>
                 <div class="form-group">
                     <label for="confirmcin">تأكيد رقم بطاقة الهوية<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="confirmcin" name="confirmcin" required>
-                    <div class="error" id="confirmcinError">تأكيد رقم بطاقة الهوية إجباري</div>
+                    <div class="error" id="confirmcinError">يرجى تأكيد رقم بطاقة الهوية</div>
                     <div class="error" id="cinMatchError" style="color:red;display:none;">أرقام الهوية غير متطابقة</div>
                 </div>
                 <div class="form-group">
                     <label for="deliveryCin">تاريخ الإصدار <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="deliveryCin" name="deliveryCin" required>
-                    <div class="error" id="deliveryCinError">تاريخ إصدار بطاقة الهوية إجباري</div>
+                    <div class="error" id="deliveryCinError">يرجى إدخال تاريخ إصدار بطاقة الهوية</div>
                 </div>
                 <div class="form-group">
                     <label for="delveryplace">في <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="delveryplace" name="delveryplace" required>
-                    <div class="error" id="delveryplaceError">مكان الإصدار إجباري</div>
+                    <div class="error" id="delveryplaceError">يرجى إدخال مكان إصدار بطاقة الهوية</div>
                 </div>
                 <div class="form-group">
                     <label for="adresse">عنوان العميل <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="adresse" name="adresse" required>
-                    <div class="error" id="adresseError">العنوان إجباري</div>
+                    <div class="error" id="adresseError">يرجى إدخال العنوان</div>
                 </div>
                 <div class="form-group">
                     <label for="pays">الدولة  <span class="text-danger">*</span></label>
                     <select type="text" class="form-control" id="pays" name="pays" required>
                         <option value="">اختر الدولة</option>
                     </select>
-                    <div class="error" id="paysError">الدولة إجبارية</div>
+                    <div class="error" id="paysError">يرجى اختيار البلد</div>
                 </div>
                 <div class="form-group">
                     <label for="gouvernorat">المحافظة  <span class="text-danger">*</span></label>
                     <select id="gouvernorat" name="gouvernorat" class="form-control" required>
                         <option value="">اختر المحافظة</option>
                     </select>
-                    <div class="error" id="gouvernoratError">المحافظة إجبارية</div>
+                    <div class="error" id="gouvernoratError">يرجى اختيار المحافظة</div>
                 </div>
                 <div class="form-group">
                     <label for="ville">المدينة <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="ville" name="ville" required>
-                    <div class="error" id="villeError">المدينة إجبارية</div>
+                    <div class="error" id="villeError">يرجى إدخال اسم المدينة</div>
                 </div>
                 <div class="form-group">
                     <label for="codePostal">الرمز البريدي <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="codePostal" name="codePostal" required>
-                    <div class="error" id="codePostalError">الرمز البريدي إجباري</div>
+                    <div class="error" id="codePostalError">يرجى إدخال الرمز البريدي</div>
                     <div class="error" id="codePostalError2">يجب أن يتكون الرمز البريدي من 4 أرقام بالضبط.</div>
                 </div>             
                 <div class="form-group">
                     <label for="birthday">تاريخ الميلاد  <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="birthday" name="birthday" required>
-                    <div class="error" id="birthdayError">تاريخ الميلاد إجباري.</div>
+                    <div class="error" id="birthdayError">يرجى إدخال تاريخ الميلاد</div>
                 </div>
                 <div class="form-group">
                     <label for="phone">رقم هاتف التواصل <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phone" name="phone" required>
-                    <div class="error" id="phoneError">رقم الهاتف إجباري</div>
+                    <div class="error" id="phoneError">يرجى إدخال رقم الهاتف</div>
                     <div class="error" id="phonedigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام</div>
                 </div>
                 <div class="form-group">
                     <label for="phoneDesired">أرغب في نقل الرقم التالي<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required>
-                    <div class="error" id="phoneDesiredError">رقم الهاتف إجباري</div>
+                    <div class="error" id="phoneDesiredError">يرجى إدخال رقم الهاتف المرغوب</div>
                     <div class="error" id="phonedesdigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام</div>
                 </div>
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email" name="email" required>
-                    <div class="error" id="emailError">البريد الإلكتروني إجباري</div>
-                    <div class="error" id="emailError2">الرجاء إدخال بريد إلكتروني صالح ينتهي بـ @example.com</div>
+                    <div class="error" id="emailError">يرجى إدخال البريد الإلكتروني</div>
+                    <div class="error" id="emailError2">الرجاء إدخال بريد إلكتروني صالح ينتهي بـ example.com@</div>
                 </div>
                 <div class="form-group">
                     <label for="dateMiseEnServiceDes">تاريخ بدء الخدمة<span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
-                    <div class="error" id="dateMiseEnServiceDesError">تاريخ بدء الخدمة إجباري</div>
+                    <div class="error" id="dateMiseEnServiceDesError">يرجى إدخال تاريخ بدء الخدمة المطلوب</div>
                 </div>
                 <div class="form-group">
                     <label for="cinRecto">ارفع نسخة من الهوية <span class="text-danger">*</span></label>
                     <input type="file"  class="form-control" id="cinRecto" name="cinRecto" accept="image/*,application/pdf"  required>
-                    <div class="error" id="cinRectoError">تأكيد رفع الهوية إجباري.</div>
+                    <div class="error" id="cinRectoError">يرجى تحميل صورة بطاقة الهوية (الوجه الأمامي)</div>
                     <div class="error" id="cinRectoError2">يُسمح فقط بملفات الصور أو PDF.</div>
                 </div>
                 <div class="form-group">
                     <label for="cinVerso">ارفع نسخة من الهوية - verso <span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="cinVerso" name="cinVerso" accept="image/*,application/pdf"  required>
-                    <div class="error" class="form-control" id="cinVersoError">تأكيد رفع الهوية إجباري</div>
+                    <div class="error" class="form-control" id="cinVersoError">يرجى تحميل صورة بطاقة الهوية (الوجه الخلفي)</div>
                     <div class="error" id="cinVersoError2">يُسمح فقط بملفات الصور أو PDF.</div>
                 </div>
                 <div class="form-group">
                     <label for="codeRio">   الخاص بك RIO قم بتحميل التقاط رمز  <span class="text-danger">*</span></label>
                     <input type="file" class="form-control" id="codeRio" name="codeRio" accept="image/*,application/pdf"  alt="Tapez *172# pour obtenir votre code RIO" required>
-                    <div class="error" id="codeRioError">  الخاص بك إجباري RIO قم بتحميل التقاط رمز   </div>
+                    <div class="error" id="codeRioError">  الخاص بك RIO يرجى تحميل صورة رمز    </div>
                     <div class="error" id="codeRioError2">يُسمح فقط بملفات الصور أو PDF.</div>
                     <small>اكتب *172# للحصول على رمز RIO الخاص بك</small>
                 </div>
