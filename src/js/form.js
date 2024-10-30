@@ -9,13 +9,229 @@ document.addEventListener('DOMContentLoaded', function() {
         const submitBtn = document.getElementById('submitBtn');
       function showError(fieldId, errorId) {
             document.getElementById(errorId).style.display = 'block';
+            document.getElementById(fieldId).classList.add('is-invalid');
+            document.getElementById(fieldId).classList.remove('is-valid');
         }
         function hideError(errorId) {
             document.getElementById(errorId).style.display = 'none';
         }
 function dismissAlert(element) {
-            element.parentElement.parentElement.remove(); // Remove the entire alert block
+            element.parentElement.parentElement.remove(); 
         }
+      
+
+document.getElementById('phoneNumber').addEventListener('input', function() {
+    const phone = this.value.trim();
+    if (phone === '') {
+        showError('phoneNumber', 'phoneNumberError');
+        hideError('phoneNumberdigitsError');
+    } else if (!/^\d{8}$/.test(phone)) {
+        showError('phoneNumber', 'phoneNumberdigitsError');
+        hideError('phoneNumberError');
+    } else {
+        hideError('phoneNumberError');
+        hideError('phoneNumberdigitsError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+        // Phone validation
+  // Phone validation
+  document.getElementById('phone').addEventListener('input', function() {
+    const phone = this.value.trim();
+    if (phone === '') {
+        showError('phone', 'phoneError');
+        hideError('phonedigitsError');
+    } else if (!/^\d{8}$/.test(phone)) {
+        showError('phone', 'phonedigitsError');
+        hideError('phoneError');
+    } else {
+        hideError('phoneError');
+        hideError('phonedigitsError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+document.getElementById('prenom').addEventListener('input', function() {
+    const prenom = this.value.trim();
+   
+    if (prenom === '') {
+        showError('prenom', 'prenomError');
+   
+    } else {
+        hideError('prenomError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+document.getElementById('nom').addEventListener('input', function() {
+    const nom = this.value.trim();
+   
+    if (nom === '') {
+        showError('nom', 'nomError');
+   
+    } else {
+        hideError('nomError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+document.getElementById('ville').addEventListener('input', function() {
+    const ville = this.value.trim();
+   
+    if (ville === '') {
+        showError('ville', 'villeError');
+   
+    } else {
+        hideError('villeError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+document.getElementById('adresse').addEventListener('input', function() {
+    const adresse = this.value.trim();
+   
+    if (adresse === '') {
+        showError('adresse', 'adresseError');
+   
+    } else {
+        hideError('adresseError');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+document.getElementById('codePostal').addEventListener('input', function() {
+    const codePostal = this.value.trim();
+   
+    if (codePostal === '') {
+        showError('codePostal', 'codePostalError');
+        hideError('codePostalError2');
+   
+    }else if (!/^\d{4}$/.test(codePostal))  {
+        showError('codePostal', 'codePostalError2');
+        hideError('codePostalError');
+    }  else {
+        hideError('codePostalError');
+        hideError('codePostalError2');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+// Email validation
+document.getElementById('email').addEventListener('input', function() {
+    const email = this.value.trim();
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (email === '') {
+        showError('email', 'emailError');
+        hideError('emailError2');
+    } else if (!emailPattern.test(email)) {
+        showError('email', 'emailError2');
+        hideError('emailError');
+    } else {
+        hideError('emailError');
+        hideError('emailError2');
+        this.classList.add('is-valid'); 
+        this.classList.remove('is-invalid'); 
+    }
+});
+
+// Type d'Identité selection validation
+document.getElementById('typeIdentity').addEventListener('change', function() {
+    const typeIdentity = this.value;
+    if (typeIdentity === '') {
+        showError('typeIdentity', 'typeIdentityError');
+        hideError('cinError');
+        hideError('cinError2');
+        hideError('passportError');
+        this.classList.remove('is-valid'); // Add green border when valid
+        this.classList.add('is-invalid');
+    } else {
+        hideError('typeIdentityError');
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid');
+     
+    }
+});
+document.getElementById('gouvernorat').addEventListener('change', function() {
+    const gouvernorat = this.value;
+    if (gouvernorat === '') {
+        showError('gouvernorat', 'gouvernoratError');
+        this.classList.remove('is-valid'); // Add green border when valid
+        this.classList.add('is-invalid');
+    } else {
+        hideError('gouvernoratError');
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid');
+     
+    }
+});
+document.getElementById('ancienOperator').addEventListener('change', function() {
+    const ancienOperator = this.value;
+    if (ancienOperator === '') {
+        showError('ancienOperator', 'ancienOperatorError');
+        this.classList.remove('is-valid'); // Add green border when valid
+        this.classList.add('is-invalid');
+    } else {
+        hideError('ancienOperatorError');
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid');
+     
+    }
+});
+document.getElementById('typePerson').addEventListener('change', function() {
+    const typePerson = this.value;
+    if (typePerson === '') {
+        showError('typePerson', 'typePersonError');
+        this.classList.remove('is-valid'); // Add green border when valid
+        this.classList.add('is-invalid');
+    } else {
+        hideError('typePersonError');
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid');
+     
+    }
+});
+ // Phone desired
+ document.getElementById('phoneDesired').addEventListener('input', function() {
+    const phone = this.value.trim();
+    if (phone === '') {
+        showError('phoneDesired', 'phoneDesiredError');
+        hideError('phonedesdigitsError');
+    } else if (!/^\d{8}$/.test(phone)) {
+        showError('phoneDesired', 'phonedesdigitsError');
+        hideError('phoneDesiredError');
+    } else {
+        hideError('phoneDesiredError');
+        hideError('phonedesdigitsError');
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid'); // Remove red border when valid
+    }
+});
+
+// Numéro de la pièce d'identité (CIN/Passport) validation on input
+document.getElementById('cin').addEventListener('input', function() {
+    const typeIdentity = document.getElementById('typeIdentity').value;
+    const cin = this.value.trim();
+
+    if (cin === '') {
+        showError('cin', 'cinError');
+    } else {
+        hideError('cinError');
+        if (typeIdentity === 'CIN' && !/^\d{8}$/.test(cin)) {
+            showError('cin', 'cinError2');
+            hideError('passportError');
+        } else if (typeIdentity === 'Passeport' && (cin.length < 7 || cin.length > 13 || !/^[a-zA-Z0-9]+$/.test(cin))) {
+            showError('cin', 'passportError');
+            hideError('cinError2');
+        } else {
+            hideError('cinError2');
+            hideError('passportError');
+            this.classList.add('is-valid'); // Add green border when valid
+            this.classList.remove('is-invalid'); // Remove red border when valid
+        }
+    }
+});
+
 function validateStep1() {
     let isValid = true;
      const phoneNumber = document.getElementById('phoneNumber').value.trim();
@@ -23,9 +239,11 @@ function validateStep1() {
      const typePerson = document.getElementById('typePerson').value.trim();
     if (phoneNumber === '') {
         showError('phoneNumber', 'phoneNumberError');
+        hideError('phoneNumberdigitsError');
         isValid = false;
     } else if (!/^\d{8}$/.test(phoneNumber)) {
         showError('phoneNumber', 'phoneNumberdigitsError');
+        hideError('phoneNumberError');
         isValid = false;
     }else {
         hideError('phoneNumberError');
@@ -51,13 +269,7 @@ function validateStep1() {
 }
         function validateStep2() {
     let isValid = true;
-    const civility = document.getElementById('civility').value.trim();
-    if (civility === '') {
-        showError('civility', 'civilityError');
-        isValid = false;
-    } else {
-        hideError('civilityError');
-    }
+ 
     const typeIdentity = document.getElementById('typeIdentity').value.trim();
     if (typeIdentity === '') {
         showError('typeIdentity', 'typeIdentityError');
@@ -86,21 +298,21 @@ function validateStep1() {
     } else {
         hideError('cinError');
     }
-    const confirmCin = document.getElementById('confirmcin').value.trim();
+   /* const confirmCin = document.getElementById('confirmcin').value.trim();
     if (confirmCin === '') {
         showError('confirmcin', 'confirmcinError');
         isValid = false;
     } else {
         hideError('confirmcinError');
-    }
-    
+    }*/
+    /*
     if (cin !== '' && confirmCin !== '' && cin !== confirmCin) {
         showError('confirmcin', 'cinMatchError');
         isValid = false;
     } else {
         hideError('cinMatchError');
-    }
-    const deliveryCin = document.getElementById('deliveryCin').value.trim();
+    }*/
+    /*const deliveryCin = document.getElementById('deliveryCin').value.trim();
     if (deliveryCin === '') {
         showError('deliveryCin', 'deliveryCinError');
         isValid = false;
@@ -113,7 +325,7 @@ function validateStep1() {
         isValid = false;
     } else {
         hideError('delveryplaceError');
-    }
+    }*/
     const adresse = document.getElementById('adresse').value.trim();
     if (adresse === '') {
         showError('adresse', 'adresseError');
@@ -121,13 +333,8 @@ function validateStep1() {
     } else {
         hideError('adresseError');
     }
-    const pays = document.getElementById('pays').value.trim();
-    if (pays === '') {
-        showError('pays', 'paysError');
-        isValid = false;
-    } else {
-        hideError('paysError');
-    }
+    const pays = 'Tunisia'
+    
     const gouvernorat = document.getElementById('gouvernorat').value.trim();
     if (gouvernorat === '') {
         showError('gouvernorat', 'gouvernoratError');
@@ -153,13 +360,13 @@ function validateStep1() {
         hideError('codePostalError');
         hideError('codePostalError2');
     }
-    const birthday = document.getElementById('birthday').value.trim();
+   /* const birthday = document.getElementById('birthday').value.trim();
     if (birthday === '') {
         showError('birthday', 'birthdayError');
         isValid = false;
     } else {
         hideError('birthdayError');
-    }
+    }*/
     const phone = document.getElementById('phone').value.trim();
     if (phone === '') {
         showError('phone', 'phoneError');
@@ -299,15 +506,11 @@ if (typeIdentity === '') {
                 const data = {
                     "phoneNumber": formData.get('phoneNumber'),              
                     "ancienOperator": formData.get('ancienOperator'),   
-                    "typePerson": formData.get('typePerson'),           
-                    "civility": formData.get('civility'),                        
+                    "typePerson": formData.get('typePerson'),                                
                     "typeIdentity": formData.get('typeIdentity'),            
                     "prenom": formData.get('prenom'),                
                     "nom": formData.get('nom'),                          
-                    "cin": formData.get('cin'),                     
-                    "confirmcin": formData.get('confirmcin'),          
-                    "deliveryCin": formData.get('deliveryCin'),              
-                    "delveryplace": formData.get('delveryplace'),       
+                    "cin": formData.get('cin'),                          
                     "adresse": formData.get('adresse'),             
                     "pays": formData.get('pays'),                  
                     "gouvernorat": formData.get('gouvernorat'),    
@@ -316,8 +519,7 @@ if (typeIdentity === '') {
                     "confirmation": formData.get('confirmation') === 'on' ? true : false,                
                     "cinRecto": formData.get('cinRecto'),  // file   
                     "cinVerso": formData.get('cinVerso'),  // file  
-                    "codeRio": formData.get('codeRio'),              
-                    "birthday": formData.get('birthday'),       
+                    "codeRio": formData.get('codeRio'),                   
                     "phone": formData.get('phone'),                  
                     "phoneDesired": formData.get('phoneDesired'),              
                     "email": formData.get('email'),        

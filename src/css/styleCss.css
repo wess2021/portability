@@ -108,7 +108,16 @@ body, html {
         bottom: 0 !important;
     }
 }
+.is-valid {
+    border-color: #28a745; /* Green border for valid input */
+    background-color: rgba(40, 167, 69, 0.1); /* Light green background */
+}
 
+/* Styles for invalid input */
+.is-invalid {
+    border-color: #dc3545; /* Red border for invalid input */
+    background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+}
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-weight: bold; 
@@ -152,7 +161,7 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="email"],
-select,
+select,textarea,
 input[type="file"] {
     width: 100%;
     border: 1px solid #ccc;
@@ -177,6 +186,46 @@ input[type="checkbox"] {
 }
 
 
+input[type="text"].is-valid:focus,
+input[type="date"].is-valid:focus,
+input[type="email"].is-valid:focus,
+select.is-valid:focus,
+input[type="file"].is-valid:focus {
+    border-color: #79ff6c;
+}
+textarea.is-valid:focus { /* Added textarea */
+    border-color: #79ff6c; /* Green border for valid input */
+}
+
+/* Invalid input focus styles */
+input[type="text"].is-invalid:focus,
+input[type="date"].is-invalid:focus,
+input[type="email"].is-invalid:focus,
+select.is-invalid:focus,
+input[type="file"].is-invalid:focus {
+    border-color: #ff8995; 
+}
+textarea.is-invalid:focus { /* Added textarea */
+    border-color: #ff8995; /* Red border for invalid input */
+}
+
+/* Styles for valid input */
+.is-valid {
+    border-color: #79ff6c; /* Green border for valid input */
+    background-color: rgba(40, 167, 69, 0.1); /* Light green background */
+}
+
+/* Styles for invalid input */
+.is-invalid {
+    border-color: #ff8995; /* Red border for invalid input */
+    background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+}
+
+
+/* Show error message when the input is invalid */
+.is-invalid ~ .error {
+    display: block; /* Show the error messages */
+}
 .error {
     color: red;
     display: none; 

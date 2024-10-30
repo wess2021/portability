@@ -47,6 +47,12 @@ body, html {
     margin:20px;
     position: relative; 
 }
+.form-control .is-valid {
+    border: 1px solid green !important;
+}
+.form-control .is-invalid  {
+    border: 1px solid red !important;
+}
 
 .footerfr::before{
     content: "© All Rights reserved to Jawhra Mobile";
@@ -157,7 +163,7 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="email"],
-select,
+select,textarea,
 input[type="file"] {
     width: 100%;
     border: 1px solid #ccc;
@@ -181,7 +187,48 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+input[type="text"].is-valid:focus,
+input[type="date"].is-valid:focus,
+input[type="email"].is-valid:focus,
+select.is-valid:focus,
+input[type="file"].is-valid:focus {
+    border-color: #41f131;
+}
+textarea.is-valid:focus { /* Added textarea */
+    border-color: #79ff6c; /* Green border for valid input */
+}
 
+input[type="text"].is-invalid:focus,
+input[type="date"].is-invalid:focus,
+input[type="email"].is-invalid:focus,
+select.is-invalid:focus,
+input[type="file"].is-invalid:focus {
+    border-color: #f14051; 
+}
+textarea.is-invalid:focus { /* Added textarea */
+    border-color: #ff8995; /* Red border for invalid input */
+}
+
+.is-valid {
+    border-color: #41f131; 
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.is-invalid {
+    border-color: #f14051; 
+    background-color: rgba(220, 53, 69, 0.1);
+}
+textarea.is-valid {
+    border-color: #79ff6c; /* Green border for valid textarea */
+}
+
+/* Styles for invalid textarea */
+textarea.is-invalid {
+    border-color: #ff8995; /* Red border for invalid textarea */
+}
+.is-invalid ~ .error {
+    display: block; 
+}
 .error {
     color: red;
     display: none; 

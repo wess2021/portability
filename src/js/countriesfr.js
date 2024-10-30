@@ -37,15 +37,9 @@ $(document).ready(function() {
         "Tunis",
         "Zaghouan"
     ];
-    $('#pays').change(function() {
-        const selectedCountry = $(this).val();
-        if (selectedCountry === "Tunisia") {
             $('#gouvernorat').html('<option value="">Sélectionnez un gouvernorat</option>'); 
             governorates.forEach(g => {
                 $('#gouvernorat').append(new Option(g, g));
             });
-        } else {
-            $('#gouvernorat').html('<option value="">Sélectionnez un gouvernorat</option>');
-        }
-    });
+    
 });
