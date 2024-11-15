@@ -259,7 +259,12 @@ document.getElementById('cin').addEventListener('input', function() {
             showError('cin', 'cinError2');
             hideError('passportError');
             hideError('fiscaleError');
-        } else if (typeIdentity === 'Passeport' && (cin.length < 7 || cin.length > 13 || !/^[a-zA-Z0-9]+$/.test(cin))) {
+        } else if (typeIdentity === 'Passeport' && (
+            cin.length < 7 || 
+            cin.length > 13 || 
+            !/^[a-zA-Z0-9]+$/.test(cin) || // Must contain only letters and numbers
+            !(/[a-zA-Z]/.test(cin) && /\d/.test(cin)) // Must contain at least one letter and one number
+        )){
             showError('cin', 'passportError');
             hideError('cinError2');
             hideError('fiscaleError');
@@ -539,18 +544,18 @@ if (typeIdentity === '') {
                 };
              console.log("data", data);           
                 var toastMixin = Swal.mixin({
-                    toast: true,
+                    //toast: true,
                     icon: 'success',
                     title: 'General Title',
                     animation: true,
-                    position: 'top-right',
-                    showConfirmButton: false,
+                   // position: 'top-right',
+                   /* showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
-                    }
+                    }*/
                 });
                  //   url: 'http://localhost/nety/rest/addportability',
                 $.ajax({
