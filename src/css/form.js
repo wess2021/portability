@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-  const mm="";
+  
         const form = document.getElementById('multiStepForm');
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
@@ -23,20 +23,19 @@ function dismissAlert(element) {
 document.getElementById('phoneNumber').addEventListener('input', function() {
     const phone = this.value.trim();
     if (phone === '') {
-        console.log("enter 1"); 
         showError('phoneNumber', 'phoneNumberError');
         hideError('phoneNumberdigitsError');
     } else if (!/^\d{8}$/.test(phone)) {
         showError('phoneNumber', 'phoneNumberdigitsError');
         hideError('phoneNumberError');
     } else {
-        document.getElementById("phoneDesired").value = phone;
         hideError('phoneNumberError');
         hideError('phoneNumberdigitsError');
         this.classList.add('is-valid'); 
         this.classList.remove('is-invalid'); 
     }
 });
+        // Phone validation
   // Phone validation
   document.getElementById('phone').addEventListener('input', function() {
     const phone = this.value.trim();
@@ -118,7 +117,7 @@ document.getElementById('codePostal').addEventListener('input', function() {
         this.classList.remove('is-invalid'); 
     }
 });
-
+// Email validation
 document.getElementById('email').addEventListener('input', function() {
     const email = this.value.trim();
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -136,21 +135,19 @@ document.getElementById('email').addEventListener('input', function() {
     }
 });
 
-const typeIdentitySelect = document.getElementById('typeIdentity');
-
+// Type d'Identité selection validation
 document.getElementById('typeIdentity').addEventListener('change', function() {
     const typeIdentity = this.value;
-
     if (typeIdentity === '') {
         showError('typeIdentity', 'typeIdentityError');
         hideError('cinError');
         hideError('cinError2');
         hideError('passportError');
-        this.classList.remove('is-valid'); 
+        this.classList.remove('is-valid'); // Add green border when valid
         this.classList.add('is-invalid');
     } else {
         hideError('typeIdentityError');
-        this.classList.add('is-valid'); 
+        this.classList.add('is-valid'); // Add green border when valid
         this.classList.remove('is-invalid');
      
     }
@@ -159,11 +156,11 @@ document.getElementById('gouvernorat').addEventListener('change', function() {
     const gouvernorat = this.value;
     if (gouvernorat === '') {
         showError('gouvernorat', 'gouvernoratError');
-        this.classList.remove('is-valid'); 
+        this.classList.remove('is-valid'); // Add green border when valid
         this.classList.add('is-invalid');
     } else {
         hideError('gouvernoratError');
-        this.classList.add('is-valid'); 
+        this.classList.add('is-valid'); // Add green border when valid
         this.classList.remove('is-invalid');
      
     }
@@ -172,63 +169,28 @@ document.getElementById('ancienOperator').addEventListener('change', function() 
     const ancienOperator = this.value;
     if (ancienOperator === '') {
         showError('ancienOperator', 'ancienOperatorError');
-        this.classList.remove('is-valid'); 
+        this.classList.remove('is-valid'); // Add green border when valid
         this.classList.add('is-invalid');
     } else {
         hideError('ancienOperatorError');
-        this.classList.add('is-valid'); 
+        this.classList.add('is-valid'); // Add green border when valid
         this.classList.remove('is-invalid');
      
     }
 });
-const typePersonSelect = document.getElementById('typePerson');
-typePersonSelect.addEventListener('change', function() {
+document.getElementById('typePerson').addEventListener('change', function() {
     const typePerson = this.value;
-    const language = document.documentElement.lang;  
     if (typePerson === '') {
         showError('typePerson', 'typePersonError');
-        this.classList.remove('is-valid');
+        this.classList.remove('is-valid'); // Add green border when valid
         this.classList.add('is-invalid');
     } else {
-        let options = '';
-        if (language === 'ar') {
-            if (typePerson === 'Personne morale') {
-                options = `
-                    <option value="">اختر</option>
-                    <option value="Matricule fiscale">رقم التسجيل الضريبي</option>
-                    <option value="CIN">بطاقة التعريف الوطنية</option>
-                    <option value="Passeport">جواز السفر</option>
-                `;
-            } else {
-                options = `
-                    <option value="">اختر</option>
-                    <option value="CIN">بطاقة التعريف الوطنية</option>
-                    <option value="Passeport">جواز السفر</option>
-                `;
-            }
-        } else {
-            if (typePerson === 'Personne morale') {
-                options = `
-                    <option value="">Sélectionner</option>
-                    <option value="Matricule fiscale">Matricule fiscale</option>
-                    <option value="CIN">CIN</option>
-                    <option value="Passeport">Passeport</option>
-                `;
-            } else {
-                options = `
-                    <option value="">Sélectionner</option>
-                    <option value="CIN">CIN</option>
-                    <option value="Passeport">Passeport</option>
-                `;
-            }
-        }
-        typeIdentitySelect.innerHTML = options;      
         hideError('typePersonError');
-        this.classList.add('is-valid');
+        this.classList.add('is-valid'); // Add green border when valid
         this.classList.remove('is-invalid');
+     
     }
 });
-document.getElementById('phoneDesired').value=mm;
  // Phone desired
  document.getElementById('phoneDesired').addEventListener('input', function() {
     const phone = this.value.trim();
@@ -241,8 +203,8 @@ document.getElementById('phoneDesired').value=mm;
     } else {
         hideError('phoneDesiredError');
         hideError('phonedesdigitsError');
-        this.classList.add('is-valid'); 
-        this.classList.remove('is-invalid'); 
+        this.classList.add('is-valid'); // Add green border when valid
+        this.classList.remove('is-invalid'); // Remove red border when valid
     }
 });
 
@@ -258,21 +220,14 @@ document.getElementById('cin').addEventListener('input', function() {
         if (typeIdentity === 'CIN' && !/^\d{8}$/.test(cin)) {
             showError('cin', 'cinError2');
             hideError('passportError');
-            hideError('fiscaleError');
         } else if (typeIdentity === 'Passeport' && (cin.length < 7 || cin.length > 13 || !/^[a-zA-Z0-9]+$/.test(cin))) {
             showError('cin', 'passportError');
             hideError('cinError2');
-            hideError('fiscaleError');
-        } else if (typeIdentity === 'Matricule fiscale' && (cin.length < 8 || cin.length > 13 )) {
-            showError('cin', 'fiscaleError');
-            hideError('passportError');
-            hideError('cinError2');
-        }else {
-            hideError('fiscaleError');
+        } else {
             hideError('cinError2');
             hideError('passportError');
-            this.classList.add('is-valid'); 
-            this.classList.remove('is-invalid'); 
+            this.classList.add('is-valid'); // Add green border when valid
+            this.classList.remove('is-invalid'); // Remove red border when valid
         }
     }
 });
@@ -343,6 +298,34 @@ function validateStep1() {
     } else {
         hideError('cinError');
     }
+   /* const confirmCin = document.getElementById('confirmcin').value.trim();
+    if (confirmCin === '') {
+        showError('confirmcin', 'confirmcinError');
+        isValid = false;
+    } else {
+        hideError('confirmcinError');
+    }*/
+    /*
+    if (cin !== '' && confirmCin !== '' && cin !== confirmCin) {
+        showError('confirmcin', 'cinMatchError');
+        isValid = false;
+    } else {
+        hideError('cinMatchError');
+    }*/
+    /*const deliveryCin = document.getElementById('deliveryCin').value.trim();
+    if (deliveryCin === '') {
+        showError('deliveryCin', 'deliveryCinError');
+        isValid = false;
+    } else {
+        hideError('deliveryCinError');
+    }
+    const deliveryCinUntil = document.getElementById('delveryplace').value.trim();
+    if (deliveryCinUntil === '') {
+        showError('delveryplace', 'delveryplaceError');
+        isValid = false;
+    } else {
+        hideError('delveryplaceError');
+    }*/
     const adresse = document.getElementById('adresse').value.trim();
     if (adresse === '') {
         showError('adresse', 'adresseError');
@@ -377,6 +360,13 @@ function validateStep1() {
         hideError('codePostalError');
         hideError('codePostalError2');
     }
+   /* const birthday = document.getElementById('birthday').value.trim();
+    if (birthday === '') {
+        showError('birthday', 'birthdayError');
+        isValid = false;
+    } else {
+        hideError('birthdayError');
+    }*/
     const phone = document.getElementById('phone').value.trim();
     if (phone === '') {
         showError('phone', 'phoneError');
@@ -388,7 +378,6 @@ function validateStep1() {
         hideError('phoneError');
         hideError('phonedigitsError');
     }
-
     const phoneDesired = document.getElementById('phoneDesired').value.trim();
     if (phoneDesired === '') {
         showError('phoneDesired', 'phoneDesiredError');
@@ -413,9 +402,13 @@ function validateStep1() {
         hideError('emailError');
         hideError('emailError2');
     }
-        const today = new Date();
-        const formattedDate = today.toISOString().split('T')[0]; // This gives you "yyyy-mm-dd"
-        document.getElementById('dateMiseEnServiceDes').value = formattedDate;
+    const dateMiseEnServiceDes = document.getElementById('dateMiseEnServiceDes').value.trim();
+    if (dateMiseEnServiceDes === '') {
+        showError('dateMiseEnServiceDes', 'dateMiseEnServiceDesError');
+        isValid = false;
+    } else {
+        hideError('dateMiseEnServiceDesError');
+    }
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif','image/jpg', 'application/pdf'];
     const cinRecto = document.getElementById('cinRecto').files.length === 0;
     const cinRectoInput = document.getElementById('cinRecto');
@@ -510,8 +503,6 @@ if (typeIdentity === '') {
             });
           if (validateStep2()) {
                 const formData = new FormData(form);
-                const language = document.documentElement.lang;
-                formData.append('language', language);
                 const data = {
                     "phoneNumber": formData.get('phoneNumber'),              
                     "ancienOperator": formData.get('ancienOperator'),   
@@ -534,8 +525,7 @@ if (typeIdentity === '') {
                     "email": formData.get('email'),        
                     "dateMiseEnServiceDes": formData.get('dateMiseEnServiceDes'), 
                     "from": formData.get('from') ,    
-                    "adresseLivraison": formData.get('adresseLivraison') ,
-                    "language": formData.get('language')   
+                    "adresseLivraison": formData.get('adresseLivraison')    
                 };
              console.log("data", data);           
                 var toastMixin = Swal.mixin({
@@ -554,7 +544,7 @@ if (typeIdentity === '') {
                 });
                  //   url: 'http://localhost/nety/rest/addportability',
                 $.ajax({
-                    url:'https://preprod.nety.tn/rest/addportability',
+                    url: 'https://preprod.nety.tn/rest/addportability',
                   
                     type: 'POST',
                     data: formData,

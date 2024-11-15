@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="src/css/styleCss.css">
 <link rel="stylesheet" href="src/css/modal.css">
-<script src="src/js/formcoded.js"></script>
+<link rel="stylesheet" href="src/css/styleJawhra.css">
 
+<script src="src/js/formcoded.js"></script>
 </head>
 <body>
     <style>
@@ -20,22 +20,24 @@
         .hidden {
             display: none;
         }
+
     </style> 
+   
     <div class="container">
         <header class="header">
             <div class="header-content">
                 <div class="logo">
-                    <img src="src/images/logocss.png" alt="Logo" />
+                    <img src="src/images/jawhra.png" alt="Logo" />
                 </div>
                 <div class="language-switcher">
-                    <button type="button" onclick="window.location.href='cssAr.html'">بالعربية</button>
+                    <button type="button" onclick="window.location.href='jawharaAr.html'">بالعربية</button>
                 </div>
             </div>
-      </header>
-    <main class="main-content">  
+      </header>          
+    <main class="main-content"> 
         <div class="form-panel">
-     <img src="src/images/logo1css.png" alt="Top Left Image" class="top-left-img">
-          <!--<img src="src/images/effet.png" alt="Bottom Right Image" class="bottom-right-img">-->
+            <img src="src/images/image1.png" alt="Top Left Image" class="top-left-img">
+            <img src="src/images/image2.png" alt="Bottom Right Image" class="bottom-right-img">
             <div id="frenchForm">
             <form id="multiStepForm" enctype="multipart/form-data" novalidate>
                 <!-- Step 1 -->
@@ -67,6 +69,7 @@
                 </select>
                 <div class="error" id="typePersonError">Type de personne est requis.</div>
             </div>
+
             <div class="button-container">
                 <button class="btn btn-success buttonet" type="button" id="nextBtn">Suivant</button>
             </div>
@@ -177,18 +180,21 @@
                     <div class="error" class="form-control" id="cinVersoError">Veuillez télécharger une image de votre CIN (verso) </div>
                     <div class="error" id="cinVersoError2">Seuls les fichiers image ou PDF sont autorisés.</div>
                 </div>
+           
              
-                <input type="hidden" class="form-control" id="from" name="from" value="CSS"  required>
+                <input type="hidden" class="form-control" id="from" name="from" value="JAWHARA"  required>
                 <div class="form-group">
                     <label for="confirmation">
-                        <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px;color: #333; " required>
-                        <a href="#" id="openModal" style="   text-decoration: none; color: #333;"> J’ai lu et approuvé les 
+                        <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px;color: #FF9D00; " required>
+                        <a href="#" id="openModal" style="   text-decoration: none; color: #FF9D00;"> J’ai lu et approuvé les 
                         clauses du mandat de portabilité</a>
                                       </label>
                     <div class="error" id="confirmationError">Veuillez cocher pour accepter les conditions.
                     </div>
                 </div>
+                <p class="section-title">*La durée de portage est 6 jours ouvrable à partir de la date de dépôt de la demande</p>
             </div>
+
             <input type="hidden" id="hiddenPhoneNumber" name="phoneNumber">
             <div class="button-container">
                 <button type="button" class="btn2 btn-success buttonet" id="prevBtn" style="display:none;margin-right: 15px;">Précédent</button>
@@ -258,6 +264,5 @@
     </footer>
 </div>
     </div>
-    
 </body>
 </html>

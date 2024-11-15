@@ -55,7 +55,7 @@ body, html {
 }
 
 .footerfr::before{
-    content: "© All Rights reserved to Jawhra Mobile";
+    content: "© All Rights reserved to Jawhara Mobile";
     color: white;
     font-size: 15px;
 }
@@ -65,7 +65,7 @@ body, html {
     font-size: 15px;
 }
 .soustitlefr::before{
-    content: "Devenez JAWHRA Mobile sans changer votre numéro de téléphone actuel";
+    content: "Devenez JAWHARA Mobile sans changer votre numéro de téléphone actuel";
     color: #333;
 
 }

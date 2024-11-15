@@ -48,7 +48,7 @@ input[type="date" i] {
                     <img src="src/images/jawhra.png" alt="Logo" />
                 </div>
                 <div class="language-switcher">
-                    <button type="button" onclick="window.location.href='index.html'">Français</button>
+                    <button type="button" onclick="window.location.href='jawharaFr.html'">Français</button>
                 </div>
             </div>
       </header>
@@ -82,8 +82,8 @@ input[type="date" i] {
                 <label for="typePerson">نوع الشخص <span class="text-danger">*</span></label>
                 <select id="typePerson" class="form-control" name="typePerson" required>
                     <option value="">إختر</option>
-                    <option value="Individual">فردي</option>
-                    <option value="Company">شركة</option>
+                    <option value="Personne physique">فردي</option>
+                    <option value="Personne morale">شركة</option>
                 </select>
                 <div class="error" id="typePersonError">نوع الشخص إجباري.</div>
             </div>
@@ -122,6 +122,7 @@ input[type="date" i] {
                     <div class="error" id="cinError">يرجى إدخال رقم بطاقة الهوية</div>
                     <div class="error" id="cinError2">يجب أن يتكون رقم بطاقة التعريف من 8 أرقام بالضبط.</div>
                     <div class="error" id="passportError">يجب أن يحتوي جواز السفر على 7 أحرف أبجدية رقمية على الأقل.</div>
+                    <div class="error" id="fiscaleError">جب أن يحتوي الرقم الضريبي على 8 أحرف أبجدية رقمية كحد أقصى و13 حرفًا رقميًا على الأقل.</div>
                 </div>
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني <span class="text-danger">*</span></label>
@@ -163,14 +164,14 @@ input[type="date" i] {
                
                 <div class="form-group">
                     <label for="phoneDesired">أرغب في نقل الرقم التالي<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required>
+                    <input type="text" class="form-control" id="phoneDesired" name="phoneDesired" required readonly style="background-color: #f4f4f4bd;">
                     <div class="error" id="phoneDesiredError">يرجى إدخال رقم الهاتف المرغوب</div>
                     <div class="error" id="phonedesdigitsError">يجب أن يكون رقم الهاتف صالحًا ومكونًا من 8 أرقام</div>
                 </div>
               
                 <div class="form-group">
-                    <label for="dateMiseEnServiceDes">تاريخ بدء الخدمة<span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" required>
+                    <!--<label for="dateMiseEnServiceDes">تاريخ بدء الخدمة<span class="text-danger">*</span></label>-->
+                    <input type="hidden" class="form-control" id="dateMiseEnServiceDes" name="dateMiseEnServiceDes" >
                     <div class="error" id="dateMiseEnServiceDesError">يرجى إدخال تاريخ بدء الخدمة المطلوب</div>
                 </div>
                 <div class="form-group">
@@ -199,15 +200,17 @@ input[type="date" i] {
                     <div class="error" id="cinVersoError2">يُسمح فقط بملفات الصور أو PDF.</div>
                 </div>
             
-                <input type="hidden" class="form-control" id="from" name="from" value="JAWHRA"  required>
+                <input type="hidden" class="form-control" id="from" name="from" value="JAWHARA"  required>
                 <div class="form-group">
                     <label for="confirmation">
-                        <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px; margin-top: 28px;" required>
-                        &nbsp; لقد قرأت ووافقت على   <a href="#" id="openModal" style="text-decoration: underline; color: black;">بنود ولاية النقل</a> 
+                        <input type="checkbox" class="form-check-input"  id="confirmation" name="confirmation"  style="width: 17px; margin-top: 28px; color:black;" required>
+                        &nbsp; لقد قرأت ووافقت على   <a href="#" id="openModal" style="text-decoration: none; color: black;">بنود ولاية النقل</a> 
                         <span class="text-danger">*</span></label>
                     <div class="error" id="confirmationError">حقل إجباري.</div>
                 </div>
+              
             </div>
+            <p class="section-title" style="text-align: right;font-size: 12px;color:#FF9D00 ;">*مدة التسليم 6 أيام عمل من تاريخ تقديم الطلب</p>
             <input type="hidden" id="hiddenPhoneNumber" name="phoneNumber">
             <div class="button-container">
                 <button type="button" class="btn2 btn-success buttonet" id="prevBtn" style="display:none;">السابق</button>
